@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "leaflet/dist/leaflet.css";
+
+@layer base {
+  :root {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#0a102a] text-slate-300;
+  }
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #a78bfa, #c4b5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-purple {
+  background: linear-gradient(90deg, #a78bfa, #c4b5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-green {
+  background: linear-gradient(90deg, #34d399, #a7f3d0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-effect {
+  background: rgba(12, 20, 50, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(48, 59, 100, 0.6);
+}
+
+.glass-card {
+  background: rgba(23, 31, 64, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(48, 59, 100, 0.6);
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.btn-gradient {
+  @apply bg-gradient-to-r from-blue-500 to-teal-400 text-white font-bold py-2 px-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform;
+}
+
+.btn-gradient-green {
+  @apply bg-gradient-to-r from-green-500 to-teal-400 text-white font-bold py-2 px-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform;
+}
+
+.btn-gradient-purple {
+  @apply bg-gradient-to-r from-purple-600 to-indigo-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform;
+}
+
+.btn-gradient-blue {
+  @apply bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold py-2 px-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform;
+}
+
+.btn-secondary {
+  @apply bg-white/10 border border-white/20 text-white hover:bg-white/20;
+}
+
+.status-available {
+  @apply bg-purple-500/20 text-purple-300 border-purple-500/30;
+}
+
+.card-hover {
+  @apply transition-all duration-300 ease-in-out;
+}
+.card-hover:hover {
+  @apply transform -translate-y-1 shadow-2xl shadow-purple-500/10 border-purple-400/50;
+}
