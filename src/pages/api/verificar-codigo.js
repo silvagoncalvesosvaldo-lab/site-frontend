@@ -1,34 +1,65 @@
+// src/pages/api/verificar-codigo.js
+// Função chamada pela tela de verificação.
+// Ela encaminha o código digitado para o BACKEND e repassa o resultado.
+
 export default async function handler(req, res) {
-  const { codigo } = req.body;
+  try {
+    // 1) Pega os dados que vieram do front
+    //    (se vier via fetch do próprio front usando body JSON)
+    const body = req?.body || {};
+    const { codigoDigitado, phone } = body; // "phone" é opcional; use se seu backend exigir
 
-  const supabaseUrl = 'https://drikipvmwlzlztjwgs cu.supabase.co';
-  const apikey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyaWtpcHZtd2x6bHp0andnc2N1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MzI3ODc2MCwiZXhwIjoyMDY4ODU0NzYwfQ.NENlpUJN9Ylae17gywtKYuPlSKOBQL-p4so5emW09io';
-
-  const { data } = await fetch(`${supabaseUrl}/rest/v1/codigos_verificacao?codigo=eq.${codigo}`, {
-    method: 'GET',
-    headers: {
-      apikey: apikey,
-      Authorization: `Bearer ${apikey}`,
-      'Content-Type': 'application/json'
+    if (!codigoDigitado) {
+      return res
+        .status(400)
+        .json({ success: false, message: "Código não informado." });
     }
-  }).then((res) => res.json());
 
-  if (data && data.length > 0) {
-    const id = data[0].id;
+    // 2) Lê a URL do backend do .env (ex.: VITE_API_BASE=http://localhost:8080)
+    const API_BASE = import.meta?.env?.VITE_API_BASE;
+    if (!API_BASE) {
+      return res.status(500).json({
+        success: false,
+        message:
+          "VITE_API_BASE não está definida no .env. Configure e reinicie o dev server.",
+      });
+    }
 
-    // Invalida o código após uso
-    await fetch(`${supabaseUrl}/rest/v1/codigos_verificacao?id=eq.${id}`, {
-      method: 'PATCH',
+    // 3) Chama o backend para VALIDAR o código
+    //    -> Ajuste o caminho se o seu endpoint for diferente (ex.: /api/2fa/verify)
+    const resp = await fetch(`${API_BASE}/2fa/verify`, {
+      method: "POST",
       headers: {
-        apikey: apikey,
-        Authorization: `Bearer ${apikey}`,
-        'Content-Type': 'application/json',
-        Prefer: 'return=minimal'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ valido: false })
+      // Envie o que seu backend espera. Exemplo comum:
+      body: JSON.stringify({ code: codigoDigitado, phone }),
     });
 
-    return res.status(200).json({ mensagem: 'Código correto' });
-  } else {
-    return res.status(401).json({ mensagem: 'Código inválido' });
+    // 4) Interpreta a resposta do backend
+    //    Aqui espero algo tipo: { ok: true/false, message: "..." }
+    const data = await resp.json().catch(() => ({}));
+    const ok = resp.ok && (data.ok ?? data.success ?? resp.status === 200);
+
+    if (ok) {
+      return res.status(200).json({
+        success: true,
+        message: data.message || "Código verificado com sucesso.",
+        data,
+      });
+    }
+
+    // Se o backend respondeu erro (401/400/etc.)
+    return res.status(resp.status || 401).json({
+      success: false,
+      message: data.message || "Código incorreto ou expirado.",
+      data,
+    });
+  } catch (error) {
+    console.error("Erro ao verificar código:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Erro interno no servidor.",
+    });
   }
+}
