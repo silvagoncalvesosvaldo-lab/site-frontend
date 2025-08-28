@@ -1,107 +1,35 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { useNavigate, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { User, Truck, ArrowLeft, HeartHandshake as HandshakeIcon } from 'lucide-react';
+// src/pages/LoginRoleSelection.jsx
+import React from "react";
 
-const LoginRoleSelection = () => {
-    const navigate = useNavigate();
+export default function LoginRoleSelection() {
+  const handleSelectRole = (role) => {
+    alert(`Você selecionou: ${role}`);
+    // 👉 futuramente redireciona para Appwrite/Auth dependendo do papel
+  };
 
-    const roles = [
-        {
-            name: 'cliente',
-            title: 'Sou Cliente',
-            icon: <User className="h-8 w-8 text-blue-400" />,
-            description: 'Acessar meu painel para solicitar e gerenciar fretes.',
-        },
-        {
-            name: 'transportador',
-            title: 'Sou Transportador',
-            icon: <Truck className="h-8 w-8 text-purple-400" />,
-            description: 'Encontrar novas oportunidades e gerenciar meus fretes.',
-        },
-        {
-            name: 'afiliado',
-            title: 'Sou Afiliado',
-            icon: <HandshakeIcon className="h-8 w-8 text-teal-400" />,
-            description: 'Ver minhas indicações, comissões e pagamentos.',
-        },
-    ];
+  return (
+    <div className="p-6 text-center">
+      <h1 className="text-2xl font-bold text-green-600 mb-4">
+        Selecione seu tipo de login
+      </h1>
+      <p className="text-gray-600 mb-6">
+        Escolha o perfil que você deseja acessar.
+      </p>
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: 'spring',
-                stiffness: 100,
-            },
-        },
-    };
-
-    return (
-        <>
-            <Helmet>
-                <title>Selecionar Perfil - Os Melhores do Transporte</title>
-                <meta name="description" content="Escolha seu perfil para acessar a plataforma." />
-            </Helmet>
-            <div className="min-h-screen bg-slate-900 bg-grid-pattern text-white flex flex-col items-center justify-center p-4">
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-center mb-12"
-                >
-                    <h1 className="text-4xl md:text-5xl font-bold gradient-text-purple">Como você quer acessar?</h1>
-                    <p className="text-gray-400 mt-4 text-lg">Selecione seu perfil para continuar.</p>
-                </motion.div>
-
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl"
-                >
-                    {roles.map((role) => (
-                        <motion.div key={role.name} variants={itemVariants}>
-                            <Card
-                                className="glass-effect-hover h-full flex flex-col justify-between cursor-pointer border-white/10"
-                                onClick={() => navigate(`/acessar/${role.name}`)}
-                            >
-                                <CardHeader className="flex flex-row items-center gap-4 space-y-0 pb-2">
-                                    <div className="p-3 bg-white/10 rounded-lg">{role.icon}</div>
-                                    <CardTitle className="text-white text-2xl">{role.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-gray-300">{role.description}</p>
-                                </CardContent>
-                            </Card>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                <Button variant="ghost" asChild className="mt-12 text-gray-400 hover:text-white">
-                    <Link to="/">
-                        <ArrowLeft className="h-4 w-4 mr-2" />
-                        Voltar para a Página Inicial
-                    </Link>
-                </Button>
-            </div>
-        </>
-    );
-};
-
-export default LoginRoleSelection;
+      <div className="flex gap-4 justify-center">
+        <button
+          onClick={() => handleSelectRole("Transportador")}
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+        >
+          🚛 Transportador
+        </button>
+        <button
+          onClick={() => handleSelectRole("Administrador")}
+          className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600"
+        >
+          🛠️ Administrador
+        </button>
+      </div>
+    </div>
+  );
+}

@@ -1,27 +1,28 @@
-// src/App.jsx
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import AdminLoginPage from "./pages/AdminLoginPage";
-import VerificarCodigoPage from "./pages/VerificarCodigoPage.jsx";
-import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import Admin from "./pages/Admin";
+import Dashboard from "./pages/Dashboard";
+import VerifyCode from "./pages/VerifyCode";
+import UiTest from "./pages/UiTest";
 
-function App() {
+export default function App() {
   return (
     <Router>
-      <Routes>
-        {/* Redireciona / para /home */}
-        <Route path="/" element={<Navigate to="/home" replace />} />
-
-        <Route path="/home" element={<Home />} />
-        <Route path="/admin-login" element={<AdminLoginPage />} />
-        <Route path="/verificar-codigo" element={<VerificarCodigoPage />} />
-
-        {/* Fallback 404 → página personalizada */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Navbar />
+      <div className="min-h-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/verificar" element={<VerifyCode />} />
+          <Route path="/uitest" element={<UiTest />} />
+        </Routes>
+      </div>
+      <Footer />
     </Router>
   );
 }
-
-export default App;
