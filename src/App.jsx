@@ -13,6 +13,11 @@ export default function App() {
     <Router>
       <Navbar />
       <div className="min-h-screen">
+        {/* Teste do Tailwind */}
+        <h1 className="text-3xl font-bold text-blue-500 text-center mt-6">
+          Tailwind funcionando 🚀
+        </h1>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

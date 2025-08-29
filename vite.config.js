@@ -1,16 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
+// Configuração padrão do Vite para projetos React
 export default defineConfig({
   plugins: [react()],
-  server: {
-    headers: {
-      'Content-Type': 'text/html; charset=utf-8',
-    },
-  },
-  preview: {
-    headers: {
-      'Content-Type': 'text/html; charset=utf-8',
-    },
-  },
 })

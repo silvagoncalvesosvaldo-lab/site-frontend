@@ -1,1 +1,7 @@
-export default function VerifyCode() { return <div className="p-6 text-center text-2xl">? Verificação de Código</div>; }
+ï»¿export default function VerifyCode() {
+  return (
+    <div className="text-center mt-10">
+      <h1 className="text-4xl font-bold text-orange-600">PÃ¡gina Verificar CÃ³digo</h1>
+    </div>
+  );
+}

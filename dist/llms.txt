@@ -1,5 +1,0 @@
-## Pages
-- [Acesso Restrito - Painel de Administração](/adminlogin): Página de login para o painel de administração.
-- [Cadastro de Afiliado Novo](/newaffiliateregistration): Página para cadastrar novos afiliados na plataforma.
-- [Dashboard do Administrador](/admindashboard): Painel de controle para administradores.
-- [Selecionar Perfil - Os Melhores do Transporte](/loginroleselection): Escolha seu perfil para acessar a plataforma.
