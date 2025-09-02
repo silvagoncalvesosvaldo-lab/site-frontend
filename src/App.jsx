@@ -1,33 +1,29 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Home from "./pages/Home";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Landing from "./pages/Landing";
+import CadastroCliente from "./pages/CadastroCliente";
+import CadastroTransportador from "./pages/CadastroTransportador";
+import CadastroAfiliado from "./pages/CadastroAfiliado";
 import Login from "./pages/Login";
-import Admin from "./pages/Admin";
 import Dashboard from "./pages/Dashboard";
-import VerifyCode from "./pages/VerifyCode";
-import UiTest from "./pages/UiTest";
+import Admin from "./pages/Admin";
 
-export default function App() {
+function App() {
   return (
-    <Router>
-      <Navbar />
-      <div className="min-h-screen">
-        {/* Teste do Tailwind */}
-        <h1 className="text-3xl font-bold text-blue-500 text-center mt-6">
-          Tailwind funcionando 🚀
-        </h1>
+    <Routes>
+      {/* Página inicial */}
+      <Route path="/" element={<Landing />} />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/verificar" element={<VerifyCode />} />
-          <Route path="/uitest" element={<UiTest />} />
-        </Routes>
-      </div>
-      <Footer />
-    </Router>
+      {/* Outras páginas */}
+      <Route path="/cadastro" element={<CadastroCliente />} />
+      <Route path="/cadastroTransportador" element={<CadastroTransportador />} />
+      <Route path="/cadastroAfiliado" element={<CadastroAfiliado />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/admin" element={<Admin />} />
+    </Routes>
   );
 }
+
+export default App;

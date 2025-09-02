@@ -1,7 +1,15 @@
-﻿export default function VerifyCode() {
+function VerifyCode() {
   return (
-    <div className="text-center mt-10">
-      <h1 className="text-4xl font-bold text-orange-600">Página Verificar Código</h1>
+    <div>
+      <h1>Verificação de Código</h1>
+      <p>Digite o código que você recebeu para confirmar sua identidade.</p>
+      <form>
+        <input type="text" placeholder="Código de verificação" />
+        <button type="submit">Verificar</button>
+      </form>
     </div>
   );
 }
+
+export default VerifyCode;
+

@@ -1,16 +1,19 @@
-// src/pages/NotFound.jsx
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-800">
-      <h1 className="text-6xl font-bold mb-4">404</h1>
-      <h2 className="text-2xl font-semibold mb-2">Página não encontrada</h2>
-      <p className="mb-6">A página que você tentou acessar não existe.</p>
-      <a
-        href="/home"
-        className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-800">
+      <h1 className="text-5xl font-extrabold text-blue-600 mb-4">404</h1>
+      <p className="text-gray-700 text-center mb-6 max-w-lg">
+        Ops! A página que você tentou acessar não existe ou foi movida.
+      </p>
+      <Link
+        to="/"
+        className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition duration-300"
       >
-        Voltar para Home
-      </a>
+        Voltar para o início
+      </Link>
     </div>
   );
 }

@@ -1,7 +1,13 @@
-﻿export default function Admin() {
+import React from "react";
+
+function Admin() {
   return (
-    <div className="text-center mt-10">
-      <h1 className="text-4xl font-bold text-red-600">Página Admin</h1>
+    <div>
+      <h1>Admin</h1>
+      <p>Bem-vindo ao painel administrativo!</p>
     </div>
   );
 }
+
+export default Admin;
+
