@@ -1,0 +1,146 @@
+/* Estilos gerais da seção Hero */
+.hero {
+  display: flex;
+  align-items: center;          
+  justify-content: center;      
+  min-height: 100vh;            
+  text-align: center;
+  color: #ffffff;
+  padding: 40px 20px;
+
+  /* Fundo gradiente animado */
+  background: linear-gradient(-45deg, #0b1d39, #0f264f, #152c5c, #0b1d39);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* Animação do gradiente */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container interno */
+.hero-container {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Subtítulo */
+.hero-subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2ee8b6;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* Título principal */
+.hero-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.hero-title span {
+  color: #4a90ff; 
+}
+
+/* Descrição */
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e6e6e6;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* Localização */
+.hero-location {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00ff66;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.8s;
+}
+
+/* Botão faixa amarela */
+.hero-button {
+  margin-top: 20px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  background-color: #fff3b0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 243, 176, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: buttonGlow 2s infinite alternate;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards, buttonGlow 2s infinite alternate;
+  animation-delay: 1s, 2s;
+}
+
+.hero-button:hover {
+  transform: scale(1.05);
+  background: #ffe66d;
+}
+
+/* Animação da seta */
+.hero-button svg {
+  animation: arrowBounce 1.5s infinite ease-in-out;
+  margin-bottom: 6px;
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes buttonGlow {
+  0% { box-shadow: 0 0 8px rgba(255, 243, 176, 0.5); }
+  100% { box-shadow: 0 0 18px rgba(255, 243, 176, 0.9); }
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-description {
+    font-size: 1rem;
+  }
+  .hero-button {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.2rem;
+  }
+}
+

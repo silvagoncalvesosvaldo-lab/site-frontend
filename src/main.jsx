@@ -1,14 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App.jsx";
-import "./index.css";  // Ì¥π Importa o Tailwind CSS e os estilos globais
+import App from "./App";
+import "./styles/Hero.css"; // Import global para garantir aplica√ß√£o do CSS
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </React.StrictMode>
 );
-

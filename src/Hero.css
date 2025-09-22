@@ -1,0 +1,110 @@
+.hero {
+  background: #0a1a2f; /* fundo azul escuro */
+  color: #ffffff;
+  text-align: center;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* container central */
+.hero-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* subtítulo */
+.hero-subtitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #00d084;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  animation: fadeIn 1.5s ease;
+}
+
+/* título principal */
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+  color: #ffffff;
+  animation: fadeIn 2s ease;
+}
+
+/* destaque no texto */
+.hero-title span {
+  color: #9fa8ff; /* roxo elegante */
+  font-weight: 800;
+}
+
+/* descrição */
+.hero-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  animation: fadeIn 2.5s ease;
+}
+
+/* localização */
+.hero-location {
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  color: #00ff99;
+  font-weight: 600;
+  animation: fadeIn 3s ease;
+}
+
+/* botão/faixa */
+.hero-button {
+  background: #f5d76e;
+  color: #222;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  animation: fadeIn 3.5s ease, buttonGlow 2s infinite alternate;
+}
+
+.hero-button:hover {
+  transform: scale(1.05);
+}
+
+/* animação seta */
+.hero-button svg {
+  animation: arrowBounce 1.5s infinite ease-in-out;
+}
+
+/* animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes buttonGlow {
+  0%, 100% { box-shadow: 0 0 10px rgba(245, 215, 110, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(245, 215, 110, 0.8); }
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* responsividade */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2rem; }
+  .hero-description { font-size: 1rem; }
+  .hero-button { font-size: 0.95rem; padding: 0.6rem 1.2rem; }
+}

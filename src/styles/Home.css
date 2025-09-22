@@ -1,0 +1,103 @@
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+.hero h1 {
+  font-size: 56px; /* aumentei bastante */
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #4da6ff; /* azul médio */
+}
+
+.hero h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #b3d9ff; /* azul claro */
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 800px;
+  margin: 0 auto 10px;
+  line-height: 1.6;
+  color: #b3d9ff; /* azul claro */
+}
+
+.hero .highlight {
+  color: #9d4edd; /* roxo para destaque */
+}
+
+.hero .note {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #ffcc00;
+}
+
+/* VANTAGENS, BENEFICIOS ETC. seguem igual, mantive */
+.section-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 18px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.cta h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn.client {
+  background: #3498db;
+}
+
+.btn.transporter {
+  background: #2ecc71;
+}
+
+.btn.affiliate {
+  background: #9b59b6;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+  opacity: 0.7;
+}

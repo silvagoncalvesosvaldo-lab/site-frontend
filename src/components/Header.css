@@ -1,0 +1,102 @@
+/* Estilo principal do header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0a0f1f;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Lado esquerdo com logo e ícone */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.truck-icon {
+  font-size: 1.8rem;
+  color: #00bfa6;
+}
+
+.header-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #00bfa6;
+  letter-spacing: 0.5px;
+}
+
+/* Navegação central */
+.header-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.header-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: #9d4edd; /* Roxo destaque */
+}
+
+/* Botão de login à direita */
+.header-login a {
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.header-login a:hover {
+  background-color: #fff;
+  color: #0b0f29;
+}
+
+/* Ajustes extras no header */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.truck-icon {
+  font-size: 2rem;
+  color: #00b894; /* verde moderno */
+}
+
+.header-logo {
+  font-size: 1.6rem;
+  font-weight: 900; /* bem encorpado */
+  color: #00b894;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Botão login mais elegante */
+.header-login a {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  background-color: transparent;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.header-login a:hover {
+  background-color: #fff;
+  color: #0b0f29;
+  transform: scale(1.05);
+}

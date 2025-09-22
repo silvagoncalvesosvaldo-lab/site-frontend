@@ -1,15 +1,31 @@
+mkdir -p .vscode && cat > .vscode/tasks.json << 'EOF'
 {
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "npm reset",
+      "label": "Dev (npm run dev)",
       "type": "shell",
-      "command": "powershell",
-      "args": [
-        "-ExecutionPolicy", "Bypass",
-        "-File", "${workspaceFolder}/reset.ps1"
-      ],
+      "command": "npm run dev",
+      "isBackground": true,
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "shared" },
       "problemMatcher": []
+    },
+    {
+      "label": "Build (npm run build)",
+      "type": "shell",
+      "command": "npm run build",
+      "group": "none",
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Exibir Olá Mundo",
+      "type": "shell",
+      "command": "echo Olá Mundo do MarketPlace OMT - Teste bem-sucedido!",
+      "group": "none",
+      "presentation": { "reveal": "always", "panel": "shared" }
     }
   ]
 }
+EOF

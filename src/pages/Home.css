@@ -1,0 +1,57 @@
+.home {
+  background-color: #0b0d1a;
+  min-height: 100vh;
+  color: #cce7ff;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0b0d1a;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #87cefa;
+}
+
+.topo-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icone-caminhao {
+  color: red;
+  font-size: 36px;
+}
+
+.titulo {
+  color: #87cefa;
+}
+
+.topo-centro {
+  display: flex;
+  gap: 15px;
+  color: #87cefa;
+}
+
+.topo-direita {
+  display: flex;
+  align-items: center;
+}
+
+.botao-acesso {
+  color: #87cefa;
+  border: 2px solid #87cefa;
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.botao-acesso:hover {
+  background-color: #87cefa;
+  color: #0b0d1a;
+}
