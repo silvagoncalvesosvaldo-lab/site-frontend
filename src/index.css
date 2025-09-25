@@ -1,1 +1,4 @@
 @import "tailwindcss";
+
+/* --- Anchor offset p/ topbar+navbar fixas --- */
+[id] { scroll-margin-top: 80px; }
