@@ -1,4 +1,36 @@
 {
-  "task.autoDetect": "on",
-  "tasks.runOn": "folderOpen"
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.defaultSplitPaneOrientation": "horizontal",
+  "task.allowAutomaticTasks": "on",
+  "files.encoding": "windows1252",
+  "files.autoGuessEncoding": false,
+
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.openOMTTerminals",
+      "sequence": [
+        // Terminal A
+        "workbench.action.terminal.new",
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "Terminal A" } },
+        { "command": "workbench.action.terminal.sendSequence", "args": { "text": "npm run dev -- --host --port 5173\u000D" } },
+
+        // Terminal B
+        "workbench.action.terminal.split",
+        "workbench.action.terminal.focusNextPane",
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "Terminal B" } },
+        { "command": "workbench.action.terminal.sendSequence", "args": { "text": "aider --model ollama:tinyllama --include 'src/**' --exclude 'node_modules/**' --no-auto-commits\u000D" } },
+
+        // Terminal C
+        "workbench.action.terminal.split",
+        "workbench.action.terminal.focusNextPane",
+        { "command": "workbench.action.terminal.renameWithArg", "args": { "name": "Terminal C" } },
+        { "command": "workbench.action.terminal.sendSequence", "args": { "text": "git status\u000D" } }
+      ]
+    }
+  ],
+
+  "multiCommand.startup": [
+    "multiCommand.openOMTTerminals"
+  ]
 }

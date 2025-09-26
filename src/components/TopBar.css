@@ -1,0 +1,21 @@
+.top-bar {
+  background-color: #4da6ff; /* azul claro e vibrante */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: white;
+  font-weight: bold;
+}
+
+.top-bar .logo {
+  font-size: 1.25rem;
+}
+
+.top-bar .login-btn {
+  background-color: white;
+  color: #004080;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}

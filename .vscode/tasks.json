@@ -1,31 +1,29 @@
-mkdir -p .vscode && cat > .vscode/tasks.json << 'EOF'
 {
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Dev (npm run dev)",
-      "type": "shell",
-      "command": "npm run dev",
-      "isBackground": true,
-      "group": { "kind": "build", "isDefault": true },
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "label": "Abrir 3 Terminais",
+      "dependsOn": ["Terminal A", "Terminal B", "Terminal C"],
+      "runOptions": { "runOn": "folderOpen" },
       "problemMatcher": []
     },
     {
-      "label": "Build (npm run build)",
+      "label": "Terminal A",
       "type": "shell",
-      "command": "npm run build",
-      "group": "none",
-      "presentation": { "reveal": "always", "panel": "shared" },
+      "command": "bash -lc 'echo Terminal A; exec bash'",
       "problemMatcher": []
     },
     {
-      "label": "Exibir Olá Mundo",
+      "label": "Terminal B",
       "type": "shell",
-      "command": "echo Olá Mundo do MarketPlace OMT - Teste bem-sucedido!",
-      "group": "none",
-      "presentation": { "reveal": "always", "panel": "shared" }
+      "command": "bash -lc 'echo Terminal B; exec bash'",
+      "problemMatcher": []
+    },
+    {
+      "label": "Terminal C",
+      "type": "shell",
+      "command": "bash -lc 'echo Terminal C; exec bash'",
+      "problemMatcher": []
     }
   ]
 }
-EOF

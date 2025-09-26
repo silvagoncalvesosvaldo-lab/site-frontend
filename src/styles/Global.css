@@ -1,0 +1,26 @@
+/* === Full-page gradient (fundo escuro com tons claros) === */
+html, body {
+  min-height: 100%;
+  margin: 0;
+  background: linear-gradient(
+    135deg,
+    #0d1b2a,   /* azul escuro profundo */
+    #1b263b,   /* azul petróleo */
+    #415a77,   /* azul acinzentado */
+    #6d597a,   /* roxo fechado */
+    #8d6a9f    /* roxo mais claro */
+  );
+  background-attachment: fixed;
+  color: #000;
+}
+
+/* Wrapper translúcido para o conteúdo */
+.page-content {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}

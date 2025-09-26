@@ -1,12 +1,9 @@
-import Header from "./components/Header";
-import Titulo from "./components/Titulo";
+import React from "react";
+import HomePage from "./pages/HomePage";
 
-export default function App() {
-  return (
-    <>
-      <Header />
-      <Titulo />
-    </>
-  );
+import Navbar from './components/Navbar.jsx';
+function App() {
+  return <HomePage />;
 }
 
+export default App;

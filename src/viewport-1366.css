@@ -1,0 +1,14 @@
+@media (min-width: 1280px) and (max-width: 1440px){
+  /* Compacta os três cartões */
+  a[href="#cliente"],
+  a[href="#motorista"],
+  a[href="#afiliado"]{
+    padding: .5rem 1rem !important; /* ~ py-2 px-4 */
+  }
+  a[href="#cliente"] > *,
+  a[href="#motorista"] > *,
+  a[href="#afiliado"] > *{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}

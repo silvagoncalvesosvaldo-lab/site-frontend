@@ -1,36 +1,32 @@
-.hero {
-  text-align: center;
-  padding: 4rem 2rem;
+@import "tailwindcss";
+/* === Brand Gradient (Os Melhores do Transporte) === */
+/* Azul escuro → Azul celeste → Azul → Azul claro → Roxo → Roxo médio */
+.bg-brand-gradient {
+  background-image: linear-gradient(90deg,
+    #0b1220 0%,   /* azul escuro */
+    #38bdf8 20%,  /* azul celeste */
+    #2563eb 40%,  /* azul */
+    #93c5fd 60%,  /* azul claro */
+    #7c3aed 80%,  /* roxo */
+    #6d28d9 100%  /* roxo médio */
+  );
+  color: #fff;
 }
 
-.subtitle {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 1rem;
+/* Botão com contorno (sem Tailwind @apply) */
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(4px);
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+}
+.btn-outline:hover {
+  background-color: rgba(255,255,255,0.1);
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #000;
-}
-
-.highlight {
-  color: #a855f7; /* Roxo */
-}
-
-.highlight-green {
-  color: #22c55e; /* Verde */
-}
-
-.description {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: #444;
-}
-
-.cta-box {
-  margin-top: 2rem;
-  font-weight: bold;
-  color: #333;
-}
+/* Utilitário simples para centralização quando necessário */
+.text-center { text-align: center; }

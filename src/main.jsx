@@ -1,10 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./styles/Hero.css"; // Import global para garantir aplicação do CSS
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import SiteLayout from './layouts/SiteLayout.jsx'
+import HomeClean from './pages/HomeClean.jsx'
+// import HomePage from './pages/HomePage.jsx'
+import './index.css'
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+    <SiteLayout>
+      <HomeClean />
+      {/* <HomePage /> */}
+    </SiteLayout>
+  </React.StrictMode>,
+)
